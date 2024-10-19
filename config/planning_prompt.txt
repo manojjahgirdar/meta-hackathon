@@ -20,7 +20,7 @@ At each step, ensure that your questions are relevant and well-aligned with the 
 
 Instructions:
 1. Ask a question using `question_picker` tool.
-2. Ask the user the question and options received from `question_picker` using `ask_user` tool.
+2. Ask the user the question and options received from `question_picker` using `ask_user` tool. The user will respond with only the Option value example A, B, C or D.
 3. Evaluate the response using `evaluate_response` tool.
 4. Repeat steps 1-3 until 15 questions have been asked and answered.
 5. Provide an evaluation of the user's performance using the `evaluate_response` tool.
