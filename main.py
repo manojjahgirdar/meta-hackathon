@@ -42,7 +42,7 @@ evaluate_response_tool = StructuredTool.from_function(
 ask_user_tool = StructuredTool.from_function(
     func=ask_user,
     name="ask_user",
-    description="Use this tool to ask the user a question. This tool takes a string of dictionary as input and returns the user's response as a string.",
+    description="Use this tool to ask the user a question. This tool takes a string as input and returns the user's response as a string.",
     args_schema=AskUserInput
 )
 

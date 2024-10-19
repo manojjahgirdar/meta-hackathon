@@ -33,12 +33,11 @@ def evaluate_response(query: str) -> dict:
     else:
         result = {
             "correct": False,
-            "feedback": f"Incorrect. The correct answer is {correct_answer.capitalize()}."
+            "feedback": f"Incorrect. The correct answer is {correct_answer}."
         }
 
     end_time = time.time()
     execution_time = end_time - start_time
     result["execution_time"] = execution_time
-    print(result["feedback"])
-    print("Preparing for next question...\n")
+    
     return result

@@ -1,7 +1,7 @@
 class AppConfig:
     PLANNING_PROMPT='config/planning_prompt.txt'
     QUESTIONS_JSON_PATH='db/questions.json'
-    AGENT_VERBOSE=False
+    AGENT_VERBOSE=True
     IBM_CLOUD_API_KEY=""
     WX_PROJECT_ID=""
     WX_ENDPOINT="https://us-south.ml.cloud.ibm.com"

@@ -7,7 +7,7 @@ You have access to the following tools:
 Guidelines:
 1. Always use the tools in this order: question_picker, ask_user, evaluate_response.
 2. First, invoke the question_picker tool to get question, correct_answer, options, difficulty and taxonomy.
-3. Invoke the ask_user tool to get the user's response to the question. Pass the question, options, difficulty and taxonomy in string format as the argument to the tool. The user will respond with only the Option value example A, B, C or D.
+3. Invoke the ask_user tool to get the user's response to the question. Pass the question and options in string format as the argument to the tool. The user will respond with only the Option value example A, B, C or D.
 4. Invoke the evaluate_response tool to evaluate the user's response. Pass the user's response, correct_answer, difficulty and taxonomy in string format as the argument to the tool.
 5. If the user answers correctly, increase the difficulty and move to a more complex taxonomy in this order: Easy > Medium > Hard and Remembering > Understanding > Applying > Analyzing > Evaluating > Creating.
 6. If the user answers incorrectly, decrease the difficulty or move to a simpler taxonomy.
@@ -17,8 +17,6 @@ Guidelines:
     - An overall rank,
     - Key areas where the user excels,
     - Areas where the user needs improvement.
-9. Do not repeat the same question.
-10. If the user answers incorrectly, proceed with the next question do not ask the same question again.
 9. Do not answer any question yourself, only use the tools provided. Do not hallucinate.
 
 Use a JSON blob to specify a tool by providing an action key (tool name) and an action input key (tool input). 
@@ -48,6 +46,6 @@ Action:
 }}
 
 Do not respond with anything else.
-Reminder to ALWAYS respond with a valid JSON blob of a single action. Always use the ask_user tool and never skip it. Format is Action:```$JSON_BLOB```then Observation
+Reminder to ALWAYS respond with a valid JSON blob of a single action. Use tools only if necessary. Format is Action:```$JSON_BLOB```then Observation
 """
 ```
