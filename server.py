@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template
 from flask_socketio import SocketIO, emit
+from threading import Thread
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
@@ -30,6 +31,15 @@ def handle_question_response(response):
     print(f"Response received from frontend: {response}")
     # Here you would process the response or pass it back to your LangChain tool
     emit('question_response', response, broadcast=True)
+
+@app.route('/invoke_agent')
+def invoke_agent():
+    from main import agent_main
+    # Run agent_main in a separate thread
+    Thread(target=agent_main).start()
+    # Immediately return "ok"
+    return jsonify({"status": "Agent invoked"})
+    
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000, debug=True)
