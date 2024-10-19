@@ -20,7 +20,7 @@ logger.info("llm initialized")
 from src.tools.ask_user import ask_user, AskUserInput
 from src.tools.question_picker import question_picker, QuestionPickerInput
 from src.tools.evaluate_response import evaluate_response, EvaluateResponseInput
-
+from src.tools.final_summarizer import final_summarizer, FinalSummarizerInput
 # Initialize the question_picker tool
 
 question_picker_tool = StructuredTool.from_function(
@@ -46,13 +46,21 @@ ask_user_tool = StructuredTool.from_function(
     args_schema=AskUserInput
 )
 
+# Initialize the final_summarizer tool
+final_summarizer_tool = StructuredTool.from_function(
+    func=final_summarizer,
+    name="final_summarizer",
+    description="Use this tool to summarize the conversation. This tool takes a string of dictionary as input and returns the final summary as a string.",
+    args_schema=FinalSummarizerInput
+)
+
 # Load planning prompt
 with open(app_config.PLANNING_PROMPT, 'r') as ffile:
     agent_planning_prompt = ffile.read()
 
 # Initialize the agent with both tools
 agent = Agent(
-    tools=[question_picker_tool, evaluate_response_tool, ask_user_tool],
+    tools=[question_picker_tool, evaluate_response_tool, ask_user_tool, final_summarizer_tool],
     planning=agent_planning_prompt,
     llm=llm
 )

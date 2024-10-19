@@ -17,6 +17,12 @@ def handle_ask_question(data):
     # Emit the question to the frontend
     emit('ask_question', data, broadcast=True)
 
+@socketio.on('final_summary')
+def handle_final_summary(data):
+    print(f"Final summary received from backend: {data}")
+    # Emit the final summary to the frontend
+    emit('final_summary', data, broadcast=True)
+    
 # Handler for receiving the answer from the frontend
 @socketio.on('question_response')
 def handle_question_response(response):
