@@ -5,7 +5,10 @@ def get_Bedrock_llm():
         credentials_profile_name="default",
         provider="meta",
         model_id="arn:aws:bedrock:us-east-1:367328181879:inference-profile/us.meta.llama3-2-90b-instruct-v1:0",
-        model_kwargs={"temperature": 0}, # Greedy Mode 
+        model_kwargs={
+            "temperature": 0,
+            "stop": ['Observation:']
+        }, # Greedy Mode 
         streaming=False,
     )
 

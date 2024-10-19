@@ -60,6 +60,7 @@ class Agent:
             # print(prompt_chat.messages[0].prompt.template)
             # exit()
 
+
             # Create the chain of runnables for agent chat handling
             agent_chat = (
                 RunnablePassthrough.assign(
@@ -75,7 +76,8 @@ class Agent:
                 agent=agent_chat,
                 tools=tools_chat,
                 verbose=app_config.AGENT_VERBOSE,
-                handle_parsing_errors=True
+                handle_parsing_errors=True,
+                max_iterations=50
             )
 
             # Message history for session management
