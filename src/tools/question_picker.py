@@ -1,30 +1,38 @@
+import ast
 from langchain.agents import tool
 import time
-
+import json
+from pydantic import BaseModel, Field
 from src.core.db_crud import QuestionDB
 
-@tool("question_picker")
-def question_picker(difficulty: str, taxonomy: str) -> dict:
+class QuestionPickerInput(BaseModel):
+    query: str = Field(description="should be a difficulty and taxonomy level")
+
+@tool("question_picker", args_schema=QuestionPickerInput, return_direct=True)
+def question_picker(query: str) -> dict:
     """
     Picks a question based on the difficulty and taxonomy.
 
     Args:
-        difficulty: A string with the difficulty level.
-        taxonomy: A string with the taxonomy level.
+        query: A string with the difficulty and taxonomy level.
     
     Returns:
         dict: A dictionary with the following keys: question, correct_answer.
     """
+    # convert the query to a dictionary
+    query_dict = ast.literal_eval(query) # this will fail as the input is "{'difficulty': 'Easy', 'taxonomy': 'Remembering'}" 
+    # so we need to convert it to a dictionary
+    
     start_time = time.time()
-    difficulty = difficulty.strip().capitalize()
-    taxonomy = taxonomy.strip().capitalize()
+    difficulty = query_dict['difficulty'].strip().capitalize()
+    taxonomy = query_dict['taxonomy'].strip().capitalize()
     
     # use the db_crud to fetch a random question based on the difficulty and taxonomy
     question_db = QuestionDB()
     question = question_db.read_random(difficulty, taxonomy)
     question_db.close()
 
-    print(f"Question: {question[1]}, Answer: {question[2]}, Difficulty: {question[4]}, Taxonomy: {question[5]}, Options: {question[3]}")
+    # print(f"Question: {question[1]}, Answer: {question[2]}, Difficulty: {question[4]}, Taxonomy: {question[5]}, Options: {question[3]}")
 
     end_time = time.time()
     execution_time = end_time - start_time

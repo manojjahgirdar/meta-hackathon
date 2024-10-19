@@ -3,8 +3,7 @@ from src.core.llm import get_Bedrock_llm
 import json
 import logging
 from src.core.agent import Agent
-from pydantic import BaseModel
-from langchain.tools import StructuredTool, Tool
+from langchain.tools import Tool, StructuredTool
 import os
 from config.app_config import AppConfig
 app_config = AppConfig()
@@ -18,46 +17,33 @@ llm = get_Bedrock_llm()
 logger.info("llm initialized")
 
 # Import tools
-from src.tools.ask_user import ask_user
-from src.tools.question_picker import question_picker
-from src.tools.evaluate_response import evaluate_response
+from src.tools.ask_user import ask_user, AskUserInput
+from src.tools.question_picker import question_picker, QuestionPickerInput
+from src.tools.evaluate_response import evaluate_response, EvaluateResponseInput
 
 # Initialize the question_picker tool
-class QuestionPickerInput(BaseModel):
-    difficulty: str
-    taxonomy: str
 
-def question_picker_tool(difficulty: str, taxonomy: str) -> dict:
-    return question_picker(difficulty, taxonomy)
-
-question_picker_tool = StructuredTool(
+question_picker_tool = StructuredTool.from_function(
+    func=question_picker,
     name="question_picker",
-    func=question_picker_tool,
-    description="Use this tool to pick a question based on the difficulty and taxonomy.",
+    description="Use this tool to pick a question based on the difficulty and taxonomy. This tool takes a string of dictionary as input and returns a json.",
     args_schema=QuestionPickerInput
 )
 
-class EvaluateResponseInput(BaseModel):
-    user_response: str
-    correct_answer: str
-    difficulty: str
-    taxonomy: str
-
-def evaluate_response_tool(input: EvaluateResponseInput) -> dict:
-    return evaluate_response(input.user_response, input.correct_answer, input.difficulty, input.taxonomy)
-
-evaluate_response_tool = StructuredTool(
+# Initialize the evaluate_response tool
+evaluate_response_tool = StructuredTool.from_function(
+    func=evaluate_response,
     name="evaluate_response",
-    func=evaluate_response_tool,
-    description="Use this tool to evaluate the user's response to a question.",
+    description="Use this tool to evaluate the user's response to a question. This tool takes a string of dictionary as input and returns a json.",
     args_schema=EvaluateResponseInput
 )
 
 # Initialize the ask_user tool
-ask_user_tool = Tool(
-    name="ask_user",
+ask_user_tool = StructuredTool.from_function(
     func=ask_user,
-    description="Use this tool to ask the user a question."
+    name="ask_user",
+    description="Use this tool to ask the user a question. This tool takes a string as input and returns the user's response as a string.",
+    args_schema=AskUserInput
 )
 
 # Load planning prompt

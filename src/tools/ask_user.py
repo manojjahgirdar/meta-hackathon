@@ -1,7 +1,11 @@
 from langchain.agents import tool
 import time
+from pydantic import BaseModel, Field
 
-@tool("ask_user")
+class AskUserInput(BaseModel):
+    question: str = Field(description="should be a question")
+
+@tool("ask_user", args_schema=AskUserInput, return_direct=True)
 def ask_user(question: str) -> str:
     """
     Prompts the user with a question and returns the user's response.

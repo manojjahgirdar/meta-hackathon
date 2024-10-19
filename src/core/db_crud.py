@@ -30,10 +30,8 @@ class QuestionDB:
         return self.cursor.fetchone()   
     
     def read_random(self, difficulty: str, taxonomy: str):
-        print(f"Querying for difficulty: {difficulty}, taxonomy: {taxonomy}")
         self.cursor.execute("SELECT * FROM questions WHERE level=? AND taxonomy=? ORDER BY RANDOM() LIMIT 1", (difficulty, taxonomy))
         result = self.cursor.fetchone()
-        print(f"Query result: {result}")
         return result
     
     def read_all(self):

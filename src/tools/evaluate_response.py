@@ -1,16 +1,18 @@
+import ast
 from langchain.agents import tool
 import time
+from pydantic import BaseModel, Field
 
-@tool("evaluate_response")
-def evaluate_response(user_response: str, correct_answer: str, difficulty: str, taxonomy: str) -> dict:
+class EvaluateResponseInput(BaseModel):
+    query: str = Field(description="should be a user's response, correct answer, difficulty and taxonomy level in a string format")
+
+@tool("evaluate_response", args_schema=EvaluateResponseInput, return_direct=True)
+def evaluate_response(query: str) -> dict:
     """
     Evaluates the user's response and returns if the answer is correct or incorrect.
 
     Args:
-        user_response: A string with the user's response.
-        correct_answer: A string with the correct answer.
-        difficulty: A string with the difficulty level.
-        taxonomy: A string with the taxonomy level.
+        query: A string with the user's response, correct answer, difficulty and taxonomy level.
 
     Returns:
         dict: A result indicating whether the user's response is correct or incorrect, 
@@ -19,22 +21,19 @@ def evaluate_response(user_response: str, correct_answer: str, difficulty: str, 
     start_time = time.time()
 
     # Normalize and compare answers
-    user_response = user_response.strip().lower()
-    correct_answer = correct_answer.strip().lower()
+    query_dict = ast.literal_eval(query)
+    user_response = query_dict['user_response'].strip().lower()
+    correct_answer = query_dict['correct_answer'].strip().lower()
 
     if user_response == correct_answer:
         result = {
             "correct": True,
-            "feedback": "Correct answer!",
-            "difficulty": difficulty,
-            "taxonomy": taxonomy
+            "feedback": "Correct answer!"
         }
     else:
         result = {
             "correct": False,
-            "feedback": f"Incorrect. The correct answer is {correct_answer}.",
-            "difficulty": difficulty,
-            "taxonomy": taxonomy
+            "feedback": f"Incorrect. The correct answer is {correct_answer}."
         }
 
     end_time = time.time()

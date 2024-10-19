@@ -36,7 +36,12 @@ class Agent:
             my_llm = self.llm
 
             system_prompt = self.planning
-            user_input = '{input}\n{agent_scratchpad}\n(reminder to respond in a JSON blob no matter what and use tools only if necessary)'
+            user_input = '{input}\n{agent_scratchpad}\n'
+
+            tool_descriptions = "\n".join([f"- {tool.name}: {tool.description}" for tool in self.tools])
+            tool_names = ", ".join([tool.name for tool in self.tools])
+
+            system_prompt = self.planning.replace("{tools}", tool_descriptions).replace("{tool_names}", tool_names)
 
             prompt = ChatPromptTemplate.from_messages(
                 [
@@ -51,6 +56,9 @@ class Agent:
                 tools=render_text_description(list(tools_chat)),
                 tool_names=", ".join([t.name for t in tools_chat]),
             )
+
+            # print(prompt_chat.messages[0].prompt.template)
+            # exit()
 
             # Create the chain of runnables for agent chat handling
             agent_chat = (
