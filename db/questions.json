@@ -1,0 +1,218 @@
+[
+    {
+        "question": "What is the primary function of chlorophyll in plants?",
+        "options": {
+            "A": "To absorb water and minerals",
+            "B": "To synthesise food from sunlight",
+            "C": "To release oxygen",
+            "D": "To absorb carbon dioxide"
+        },
+        "answer": "B",
+        "taxonomy": "Remembering",
+        "level": "Easy"
+    },
+    {
+        "question": "What is the process by which plants make their own food?",
+        "options": {
+            "A": "Respiration",
+            "B": "Photosynthesis",
+            "C": "Decomposition",
+            "D": "Fermentation"
+        },
+        "answer": "B",
+        "taxonomy": "Remembering",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the by-product of photosynthesis that is released into the air?",
+        "options": {
+            "A": "Carbon dioxide",
+            "B": "Oxygen",
+            "C": "Water vapour",
+            "D": "Glucose"
+        },
+        "answer": "B",
+        "taxonomy": "Remembering",
+        "level": "Hard"
+    },
+    {
+        "question": "What is the role of stomata in plant leaves?",
+        "options": {
+            "A": "To absorb water and minerals",
+            "B": "To release oxygen and absorb carbon dioxide",
+            "C": "To synthesise food from sunlight",
+            "D": "To regulate temperature"
+        },
+        "answer": "B",
+        "taxonomy": "Understanding",
+        "level": "Easy"
+    },
+    {
+        "question": "How do plants obtain nitrogen for their growth?",
+        "options": {
+            "A": "From the air",
+            "B": "From the soil",
+            "C": "From water",
+            "D": "From other plants"
+        },
+        "answer": "B",
+        "taxonomy": "Understanding",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the difference between autotrophs and heterotrophs?",
+        "options": {
+            "A": "Autotrophs make their own food, while heterotrophs cannot",
+            "B": "Autotrophs cannot make their own food, while heterotrophs can",
+            "C": "Autotrophs are plants, while heterotrophs are animals",
+            "D": "Autotrophs are animals, while heterotrophs are plants"
+        },
+        "answer": "A",
+        "taxonomy": "Understanding",
+        "level": "Hard"
+    },
+    {
+        "question": "What is the role of Rhizobium in plant growth?",
+        "options": {
+            "A": "To fix nitrogen in the soil",
+            "B": "To absorb water and minerals",
+            "C": "To synthesise food from sunlight",
+            "D": "To release oxygen"
+        },
+        "answer": "A",
+        "taxonomy": "Applying",
+        "level": "Easy"
+    },
+    {
+        "question": "How do plants adapt to low light conditions?",
+        "options": {
+            "A": "By increasing the number of stomata",
+            "B": "By decreasing the number of stomata",
+            "C": "By changing the shape of their leaves",
+            "D": "By producing more chlorophyll"
+        },
+        "answer": "C",
+        "taxonomy": "Applying",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the effect of excessive use of fertilisers on plant growth?",
+        "options": {
+            "A": "It increases plant growth",
+            "B": "It decreases plant growth",
+            "C": "It has no effect on plant growth",
+            "D": "It depends on the type of fertiliser"
+        },
+        "answer": "B",
+        "taxonomy": "Applying",
+        "level": "Hard"
+    },
+    {
+        "question": "What is the role of saprotrophs in the ecosystem?",
+        "options": {
+            "A": "To decompose organic matter",
+            "B": "To synthesise food from sunlight",
+            "C": "To absorb water and minerals",
+            "D": "To release oxygen"
+        },
+        "answer": "A",
+        "taxonomy": "Analyzing",
+        "level": "Easy"
+    },
+    {
+        "question": "How do insectivorous plants obtain nutrients?",
+        "options": {
+            "A": "By absorbing nutrients from the soil",
+            "B": "By capturing and digesting insects",
+            "C": "By synthesising food from sunlight",
+            "D": "By releasing oxygen"
+        },
+        "answer": "B",
+        "taxonomy": "Analyzing",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the difference between parasitic and saprotrophic nutrition?",
+        "options": {
+            "A": "Parasitic nutrition involves capturing and digesting insects, while saprotrophic nutrition involves decomposing organic matter",
+            "B": "Parasitic nutrition involves decomposing organic matter, while saprotrophic nutrition involves capturing and digesting insects",
+            "C": "Parasitic nutrition involves synthesising food from sunlight, while saprotrophic nutrition involves absorbing nutrients from the soil",
+            "D": "Parasitic nutrition involves absorbing nutrients from the soil, while saprotrophic nutrition involves synthesising food from sunlight"
+        },
+        "answer": "A",
+        "taxonomy": "Analyzing",
+        "level": "Hard"
+    },
+    {
+        "question": "What is the role of symbiotic relationships in plant growth?",
+        "options": {
+            "A": "To provide nutrients to plants",
+            "B": "To protect plants from pests and diseases",
+            "C": "To improve soil quality",
+            "D": "To increase plant growth"
+        },
+        "answer": "A",
+        "taxonomy": "Evaluating",
+        "level": "Easy"
+    },
+    {
+        "question": "How do plants respond to environmental changes?",
+        "options": {
+            "A": "By changing their growth patterns",
+            "B": "By adapting to the new environment",
+            "C": "By migrating to a new location",
+            "D": "By becoming dormant"
+        },
+        "answer": "B",
+        "taxonomy": "Evaluating",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the impact of human activities on plant growth?",
+        "options": {
+            "A": "It has a positive impact on plant growth",
+            "B": "It has a negative impact on plant growth",
+            "C": "It has no impact on plant growth",
+            "D": "It depends on the type of human activity"
+        },
+        "answer": "B",
+        "taxonomy": "Evaluating",
+        "level": "Hard"
+    },
+    {
+        "question": "What is the role of plants in the ecosystem?",
+        "options": {
+            "A": "To provide food and shelter for animals",
+            "B": "To produce oxygen and absorb carbon dioxide",
+            "C": "To regulate the water cycle",
+            "D": "To maintain soil quality"
+        },
+        "answer": "B",
+        "taxonomy": "Creating",
+        "level": "Easy"
+    },
+    {
+        "question": "How can we conserve plant resources?",
+        "options": {
+            "A": "By reducing deforestation",
+            "B": "By using fertilisers and pesticides",
+            "C": "By conserving water",
+            "D": "By reducing pollution"
+        },
+        "answer": "A",
+        "taxonomy": "Creating",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the importance of plant breeding in agriculture?",
+        "options": {
+            "A": "To increase crop yield",
+            "B": "To improve crop quality",
+            "C": "To reduce pesticide use",
+            "D": "To increase food security"
+        },
+        "answer": "D",
+        "taxonomy": "Creating",
+        "level": "Hard"
+    }
+]
