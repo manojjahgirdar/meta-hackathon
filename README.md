@@ -10,11 +10,11 @@ I, [Surya Deep Singh](https://www.linkedin.com/in/surya-deep-singh-b9b94813a/?li
 
 We developed a Generative AI-powered Adaptive Assessment System aimed at transforming the EdTech space by:
 
-🎯 Automating Question Generation: Helping teachers save time with AI-generated questions.
+- 🎯 Automating Question Generation: Helping teachers save time with AI-generated questions.
 
-📈 Adaptive Learning Engine: Dynamically adjusting question difficulty in real-time based on each student's performance.
+- 📈 Adaptive Learning Engine: Dynamically adjusting question difficulty in real-time based on each student's performance.
 
-📝 Personalized Feedback: Offering students instant, tailored feedback to accelerate learning.
+- 📝 Personalized Feedback: Offering students instant, tailored feedback to accelerate learning.
 
 Our system supports teachers and empowers students, showcasing the potential of GenAI in delivering equitable and scalable education.
 
