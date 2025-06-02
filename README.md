@@ -29,7 +29,7 @@ Our system supports teachers and empowers students, showcasing the potential of 
    ```
    pip install -r requirements.txt
    ```
-3. Export environment variables:
+3. Run the python script
    ```
-   
+   python main.py
    ```
