@@ -19,3 +19,17 @@ We developed a Generative AI-powered Adaptive Assessment System aimed at transfo
 Our system supports teachers and empowers students, showcasing the potential of GenAI in delivering equitable and scalable education.
 
 
+## Instructions
+
+1. Clone the repo:
+   ```
+   git clone https://github.com/manojjahgirdar/meta-hackathon.git
+   ```
+2. Install python dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Export environment variables:
+   ```
+   
+   ```
